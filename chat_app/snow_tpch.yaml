@@ -484,7 +484,10 @@ tables:
         description: type of the part
         expr: P_TYPE
         data_type: TEXT
-        cortex_search_service_name: my_part_types_search_service
+        cortex_search_service:
+          database: CORTEX_SEARCH_TUTORIAL_DB
+          schema: PUBLIC
+          service: MY_PART_TYPES_SEARCH_SERVICE
       - name: part_container
         description: Container Types for each part
         expr: P_CONTAINER

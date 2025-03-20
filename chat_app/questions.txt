@@ -9,6 +9,13 @@ What are the top 10 products generating the highest total revenue?
 Which suppliers are providing these products?
 
 
+-- Testing Cortex Search (Complex/Trickier Fuzzy Search Tests)
+
+Find all parts with a “soft” surface (Should return BRUSHED types)
+Which parts are best for corrosion resistance? (Should match ANODIZED and PLATED types).
+List parts that are "Promo anodized metal" (Should return PROMO ANODIZED STEEL, PROMO ANODIZED BRASS, etc.).
+
+Where might I find the fairest price for steel?
 
 
 - name: What are the top 10 products generating the highest total revenue?
