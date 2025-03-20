@@ -756,4 +756,10 @@ relationships:
         right_column: supplier_key
     join_type: left_outer
     relationship_type: many_to_one
-
+verified_queries:
+  - name: What are the top 10 products generating the highest total revenue?
+    question: What are the top 10 products generating the highest total revenue?
+    use_as_onboarding_question: false
+    sql: WITH product_revenue AS (SELECT p.part_key, p.part_name, MIN(ol.lineitem_ship_date) AS start_date, MAX(ol.lineitem_ship_date) AS end_date, SUM(ol.net_revenue) AS total_revenue FROM order_lineitems AS ol LEFT OUTER JOIN part_suppliers AS ps ON ol.part_key = ps.part_key AND ol.supplier_key = ps.supplier_key LEFT OUTER JOIN parts AS p ON ps.part_key = p.part_key GROUP BY p.part_key, p.part_name) SELECT part_name, total_revenue FROM product_revenue ORDER BY total_revenue DESC NULLS LAST LIMIT 10
+    verified_by: Rene Herrera
+    verified_at: 1741567468
